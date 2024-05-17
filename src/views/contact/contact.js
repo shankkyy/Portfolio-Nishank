@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
@@ -8,7 +8,10 @@ import {
   Text,
   useColorModeValue,
   useStyleConfig,
-  Skeleton
+  Skeleton,
+  Input,
+  Textarea,
+  Button,
 } from "@chakra-ui/react";
 import routes from "../../routes";
 import Navbar from "../../components/Navbar/Navbar";
@@ -17,12 +20,17 @@ import contactimg1 from "../../assets/contact1.png";
 import { AiFillPhone, AiOutlineMail } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import  { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 export default function Contact() {
   const [loadedimage1, setloadedimage1] = useState(false);
   const [loadedimage2, setloadedimage2] = useState(false);
   const styles = useStyleConfig("Card");
   const textColorPrimary = useColorModeValue("lightblue.100", "lightpeach.100");
+
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const getActiveRoute = (routes) => {
     for (let i = 0; i < routes.length; i++) {
       if (window.location.href.indexOf(routes[i].path) !== -1) {
@@ -30,6 +38,34 @@ export default function Contact() {
       }
     }
   };
+
+
+  
+
+    const form = useRef();
+  
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+      emailjs.send("service_e4kgh4r", "template_t9agjwr", {
+        to_name: "Nishank Verma",
+        from_name: email,
+        message: message,
+      }, "45Je7Hhyxc4sq-ivX")
+        .then((result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+        }, (error) => {
+          console.log(error.text);
+          alert("Failed to send message.");
+        });
+    
+      // Clear the form
+      setEmail("");
+      setMessage("");
+    };
+    
+
   return (
     <Box>
       <Navbar displayText={getActiveRoute(routes)} />
@@ -77,9 +113,9 @@ export default function Contact() {
                 />
               </Box>
               <Text textAlign="center">FIND ME @</Text>
-              <Text href="https://maps.app.goo.gl/7HzRrRnnkAYR1HQu8"color={textColorPrimary} textAlign="center" mt="5px">
-NIT BHOPAL              </Text>
-
+              <Text href="https://maps.app.goo.gl/7HzRrRnnkAYR1HQu8" color={textColorPrimary} textAlign="center" mt="5px">
+                NIT BHOPAL
+              </Text>
             </Box>
           </Flex>
           <Flex
@@ -110,7 +146,7 @@ NIT BHOPAL              </Text>
               <Text textAlign="center">EMAIL ME @</Text>
 
               <Text color={textColorPrimary} textAlign="center" mt="5px">
-              nishankverma24@gmail.com
+                nishankverma24@gmail.com
               </Text>
             </Box>
           </Flex>
@@ -136,6 +172,28 @@ NIT BHOPAL              </Text>
             </Box>
           </Flex>
         </SimpleGrid>
+
+        <Box mt="20px" textAlign="center">
+          <form ref={form}  onSubmit={sendEmail}>
+            <Input
+              placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              mb="10px"
+              required
+            />
+            <Textarea
+              placeholder="Your Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              mb="10px"
+              required
+            />
+            <Button type="submit" colorScheme="teal">
+              Send Message
+            </Button>
+          </form>
+        </Box>
       </Box>
     </Box>
   );
