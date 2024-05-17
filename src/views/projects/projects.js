@@ -3,7 +3,6 @@ import {
   Box,
   SimpleGrid,
   Flex,
-  useColorModeValue
 } from "@chakra-ui/react";
 import routes from "../../routes";
 import Navbar from "../../components/Navbar/Navbar";

@@ -2,7 +2,7 @@ import "./App.css";
 import Sidenav from "./components/Sidenav/Sidenav";
 import Footer from "./components/Footer/Footer";
 import routes from "./routes.js";
-import { Box, useColorMode } from "@chakra-ui/react";
+import { Box} from "@chakra-ui/react";
 
 import {
   BrowserRouter as Router,
@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 
 export default function App() {
-  const { colorMode } = useColorMode();
+  // const { colorMode } = useColorMode();
 
   const redirectRoute = (routes) => {
     return routes.map((route, key) => {
