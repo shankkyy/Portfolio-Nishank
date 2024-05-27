@@ -1,7 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sidenav from "./components/Sidenav/Sidenav";
+import Footer from "./components/Footer/Footer";
+import routes from "./routes.js";
+import { Box } from "@chakra-ui/react";
 
-function App() {
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate
+} from "react-router-dom";
+
+export default function App() {
+  // const { colorMode } = useColorMode();
+
+  const redirectRoute = (routes) => {
+    return routes.map((route, key) => {
+      return (
+        <Route path={route.path} element={<route.component />} key={key} />
+      );
+    });
+  };
+  const StarryBackground = ({ colorMode }) => {
+    const numberOfStars = 100;
+    const stars = [];
+  
+    for (let i = 0; i < numberOfStars; i++) {
+      const style = {
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 5}s`,
+        transform: `rotate(${Math.random() * 360}deg)`,
+        opacity: Math.random(),
+        boxShadow: `0 0 ${Math.random() * 10}px rgba(255, 255, 255, ${Math.random()})`,
+      };
+  
+      const starClassName =
+        colorMode === "light" ? "star-black" : "star-white";
+  
+      stars.push(<div key={i} className={starClassName} style={style}></div>);
+    }
+  
+    return <div className="starry-background">{stars}</div>;
+  };
+  
   return (
     <Router>
       <StarryBackground />
