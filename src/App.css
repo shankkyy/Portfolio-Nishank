@@ -3,6 +3,7 @@
 
 body {
   font-family: 'Playfair Display', serif;
+  cursor: url('../public/cursor.png'),auto;
 }
 
 h1 {
