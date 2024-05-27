@@ -76,6 +76,7 @@ export default function Contact() {
                   color="inherit"
                 />
               </Box>
+              <Text>this is a pr</Text>
               <Text textAlign="center">FIND ME @</Text>
               <Text href="https://maps.app.goo.gl/7HzRrRnnkAYR1HQu8"color={textColorPrimary} textAlign="center" mt="5px">
 NIT BHOPAL              </Text>
