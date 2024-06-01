@@ -15,7 +15,7 @@ export default function Resume() {
 
   const handleDownload = () => {
     window.location.href =
-      "https://drive.google.com/file/d/1CDiMMF0WWNRJtC9TR2s7sqKJg4DA_UNM/view?usp=drive_link";
+      "https://drive.google.com/file/d/1U9F26HIkWfmEfjB64CGqZ2qLdbFOO1Un/view?usp=sharing";
   };
 
   return (
