@@ -52,7 +52,7 @@ export default function App() {
         <title>Nishank Verma</title> {/* Title for the page */}
         <meta name="description" content="Explore the portfolio of Nishank Verma, a Computer Science student at NIT Bhopal specializing in Data Structures, Algorithms, and MERN stack development. Discover projects, skills, and professional experience in software development and web applications" /> {/* Meta description */}
         <meta name="keywords" content="software developer , MERN STACK developer , full stack developer , web developer,data structures and algorithms , c++,mongodb, reactjs ,nodejs and more." /> {/* Keywords */}
-        <link rel="canonical" href={window.location.href} /> {/* Canonical link */}
+        <link rel="canonical" href="https://portfolio-nishank.vercel.app/home"/> {/* Canonical link */}
       </Helmet>
       <StarryBackground />
       <Sidenav routes={routes} />
