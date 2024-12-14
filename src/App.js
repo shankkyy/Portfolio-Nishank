@@ -3,6 +3,7 @@ import Sidenav from "./components/Sidenav/Sidenav";
 import Footer from "./components/Footer/Footer";
 import routes from "./routes.js";
 import { Box } from "@chakra-ui/react";
+import { Helmet } from "react-helmet";
 
 
 import {
@@ -47,6 +48,12 @@ export default function App() {
   
   return (
     <Router>
+       <Helmet>
+        <title>Nishank Verma</title> {/* Title for the page */}
+        <meta name="description" content="Explore the portfolio of Nishank Verma, a Computer Science student at NIT Bhopal specializing in Data Structures, Algorithms, and MERN stack development. Discover projects, skills, and professional experience in software development and web applications" /> {/* Meta description */}
+        <meta name="keywords" content="software developer , MERN STACK developer , full stack developer , web developer,data structures and algorithms , c++,mongodb, reactjs ,nodejs and more." /> {/* Keywords */}
+        <link rel="canonical" href={window.location.href} /> {/* Canonical link */}
+      </Helmet>
       <StarryBackground />
       <Sidenav routes={routes} />
       <Box

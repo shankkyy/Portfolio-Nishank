@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import routes from "../../routes";
 import Navbar from "../../components/Navbar/Navbar";
 import { Box, useStyleConfig, Flex, Button } from "@chakra-ui/react";
@@ -18,8 +19,17 @@ export default function Resume() {
       "https://drive.google.com/file/d/1U9F26HIkWfmEfjB64CGqZ2qLdbFOO1Un/view?usp=sharing";
   };
 
+  //this is a new change 
+
   return (
     <Box>
+      <Helmet>
+        <title>Your Name - Resume</title> {/* Title for the page */}
+        <meta name="description" content="Download the resume of Nishank verma , Resume, Software developer, data structures and algorithms , c++,mongodb, reactjs ,nodejs and more." /> {/* Meta description */}
+        <meta name="keywords" content="Nishank verma , Resume, Software developer, data structures and algorithms ,c++" /> {/* Keywords */}
+        <link rel="canonical" href={window.location.href} /> {/* Canonical link */}
+      </Helmet>
+
       <Navbar displayText={getActiveRoute(routes)} />
       <Box pt={{ base: "40px", md: "80px", xl: "80px" }}>
         <Flex justifyContent="center" alignItems="center">
